@@ -1,6 +1,8 @@
 import React from 'react'
 
-const OrderCard = ({ order }) => {
+const OrderCard = ({ order, handleDeleteOrder }) => {
+
+    
     return (
         <div>
             <div className='border rounded-2xl p-5 my-3'>
@@ -9,7 +11,7 @@ const OrderCard = ({ order }) => {
                         <h2 className="font-medium text-md py-2">{order.orderItem}</h2>
                         <h2>Price: {order?.price}</h2>
                     </div>
-                    <button className='border p-3 font-medium bg-yellow-400 rounded-2xl'>Delete Order</button>
+                    <button onClick={()=> handleDeleteOrder(order._id)} className='border p-3 font-medium bg-yellow-400 rounded-2xl'>Delete Order</button>
                 </div>
             </div>
         </div>

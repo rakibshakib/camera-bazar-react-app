@@ -24,7 +24,11 @@ import {
     useRouteMatch
 } from "react-router-dom";
 import AddAdmin from './AddAdmin/AddAdmin';
-import AdminRoute from '../../Components/PrivateRoute/AdminRoute'
+import AdminRoute from '../../Components/PrivateRoute/AdminRoute';
+import AddReview from '../../Components/AddReview/AddReview'
+import Payment from '../../Components/Payment/Payment';
+import ManageAllOrders from '../../Components/ManageAllOrders/ManageAllOrders';
+import AddCamera from '../../Components/AddCamera/AddCamera';
 
 
 const drawerWidth = 250;
@@ -45,48 +49,57 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <List >
-            <Link to={`${url}/my-order`}>
-                <ListItem sx={{ fontWeight: 600 }} button>
-                    <ListItemIcon>
-                        <AddShoppingCartIcon />
-                    </ListItemIcon>
-                    My Order
-                </ListItem>
-            </Link>
-                <ListItem sx={{ fontWeight: 600 }} button>
-                    <ListItemIcon>
-                        <RateReviewIcon />
-                    </ListItemIcon>
-                    Review
-                </ListItem>
-                <ListItem sx={{ fontWeight: 600 }} button>
-                    <ListItemIcon>
-                        <MonetizationOnIcon />
-                    </ListItemIcon>
-                    Pay
-                </ListItem>
-                <Divider />
-                {
-                    admin && <List> <ListItem sx={{ fontWeight: 600 }} button>
+                <Link to={`${url}/my-order`}>
+                    <ListItem sx={{ fontWeight: 600 }} button>
+                        <ListItemIcon>
+                            <AddShoppingCartIcon />
+                        </ListItemIcon>
+                        My Order
+                    </ListItem>
+                </Link>
+
+                <Link to={`${url}/add-review`}>
+                    <ListItem sx={{ fontWeight: 600 }} button>
+                        <ListItemIcon>
+                            <RateReviewIcon />
+                        </ListItemIcon>
+                        Review
+                    </ListItem>
+                </Link>
+                <Link to={`${url}/payment`}>
+                    <ListItem sx={{ fontWeight: 600 }} button>
                         <ListItemIcon>
                             <MonetizationOnIcon />
                         </ListItemIcon>
-                        Manage All Orders
+                        Pay
                     </ListItem>
-                        <ListItem sx={{ fontWeight: 600 }} button>
-                            <ListItemIcon>
-                                <MonetizationOnIcon />
-                            </ListItemIcon>
-                            Add A Product
-                        </ListItem>
-
+                </Link>
+                <Divider />
+                {
+                    admin && <List>
+                        <Link to={`${url}/manageAllOrder`}>
+                            <ListItem sx={{ fontWeight: 600 }} button>
+                                <ListItemIcon>
+                                    <MonetizationOnIcon />
+                                </ListItemIcon>
+                                Manage All Orders
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}/add-camera`}>
+                            <ListItem sx={{ fontWeight: 600 }} button>
+                                <ListItemIcon>
+                                    <MonetizationOnIcon />
+                                </ListItemIcon>
+                                Add Camera
+                            </ListItem>
+                        </Link>
                         <Link to={`${url}/makeAdmin`}>
-                        <ListItem sx={{ fontWeight: 600 }} button>
-                            <ListItemIcon>
-                                <MonetizationOnIcon />
-                            </ListItemIcon>
-                            Add Admin
-                        </ListItem>
+                            <ListItem sx={{ fontWeight: 600 }} button>
+                                <ListItemIcon>
+                                    <MonetizationOnIcon />
+                                </ListItemIcon>
+                                Add Admin
+                            </ListItem>
                         </Link>
 
 
@@ -96,9 +109,9 @@ function Dashboard(props) {
                             </ListItemIcon>
                             Manage Products
                         </ListItem>
+
                     </List>
                 }
-
 
             </List>
             <Divider />
@@ -175,16 +188,28 @@ function Dashboard(props) {
             >
                 <Toolbar />
                 <Box >
-                <Switch>
+                    <Switch>
                         <Route exact path={path}>
-                           <h2>This is DashBoard</h2>
+                            <h2>This is DashBoard</h2>
                         </Route>
                         <AdminRoute path={`${path}/makeAdmin`}>
                             <AddAdmin />
                         </AdminRoute>
-                        <AdminRoute path={`${path}/my-order`}>
-                            <Myorder />
+                        <AdminRoute path={`${path}/manageAllOrder`}>
+                            <ManageAllOrders />
                         </AdminRoute>
+                        <AdminRoute path={`${path}/add-camera`}>
+                            <AddCamera />
+                        </AdminRoute>
+                        <Route path={`${path}/add-review`}>
+                            <AddReview />
+                        </Route>
+                        <Route path={`${path}/my-order`}>
+                            <Myorder />
+                        </Route>
+                        <Route path={`${path}/payment`}>
+                            <Payment />
+                        </Route>
                     </Switch>
 
                 </Box>

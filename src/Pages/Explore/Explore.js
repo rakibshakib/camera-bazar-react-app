@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import useCameraData from '../../Components/Hooks/useCameraData'
 import ProductCard from '../../Components/ProductCard/ProductCard';
 import Navbar from '../../Components/Navbar/Navbar';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Explore = () => {
     const [cameras] = useCameraData()
@@ -12,10 +13,11 @@ const Explore = () => {
             <Navbar />
             <div className='container mx-auto my-5'>
 
-                <h2>Total Product: {cameras.length}</h2>
+                <h2 className='font-semibold text-2xl my-5 text-center'>Total Product: {cameras.length}</h2>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-                        {
+                        {cameras.length === 0 ? <p className='text-center font-bold'> <CircularProgress /> Loading..  </p>
+                            :
                             cameras.map(camera => <ProductCard
                                 key={camera._id}
                                 camera={camera}
