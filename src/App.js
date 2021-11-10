@@ -6,6 +6,7 @@ import {
 import AuthProvider from './Components/Contexts/AuthProvider/AuthProvider';
 import Home from './Pages/Home/Home';
 import Explore from './Pages/Explore/Explore';
+import OrderCamera from './Pages/OrderCamera/OrderCamera';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route exact path='/explore'>
               <Explore />
+            </Route>
+            <Route exact path='/camera-order/:id'>
+              <OrderCamera />
             </Route>
           </Switch>
         </BrowserRouter>

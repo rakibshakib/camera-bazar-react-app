@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import { yellow } from '@mui/material/colors';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { useHistory } from 'react-router';
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -20,8 +21,12 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const ProductCard = ({ camera }) => {
+    const history = useHistory()
+    const handleSingleProduct = id => {
+        console.log(id);
+        history.push(`/camera-order/${id}`);
+    }
     return (
-
         <Grid item xs={12} md={4} lg={3} sx={{ my: 2 }}>
             <Card sx={{ maxWidth: 280, minWidth: 250, my: 2, p: 2, height: '100%' }}>
                 <CardMedia
@@ -34,16 +39,19 @@ const ProductCard = ({ camera }) => {
                     <Typography gutterBottom variant="h6" component="div" sx={{ fontSize: 17, mb: 2 }}>
                         {camera.cameraName}
                     </Typography>
-                    <Typography gutterBottom variant="p" component="div">
+                    <Typography gutterBottom variant="p" component="div" sx={{ py: 1, fontWeight: 600, fontSize: 14 }}>
                         Price: {camera.price} BDT
                     </Typography>
                     <Typography gutterBottom variant="p" component="div">
                         Model: {camera.model}
                     </Typography>
+                    <Typography gutterBottom variant="p" component="div" sx={{ py: 1, fontSize: 14 }}>
+                        {camera.description.slice(0, 100)}
+                    </Typography>
                 </CardContent>
                 <CardActions>
                
-                    <ColorButton sx={{ width: '100%', py: 1, fontWeight: 600, fontSize: 14 }} size="small" variant='contained'><AiOutlineShoppingCart className="inline-block text-2xl mr-2" /> Buy Now</ColorButton>
+                    <ColorButton onClick={()=> handleSingleProduct(camera._id)} sx={{ width: '100%', py: 1, fontWeight: 600, fontSize: 14 }} size="small" variant='contained'><AiOutlineShoppingCart className="inline-block text-2xl mr-2" /> Buy Now</ColorButton>
                 </CardActions>
             </Card>
         </Grid>
