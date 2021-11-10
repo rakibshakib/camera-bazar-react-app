@@ -11,7 +11,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [token, setToken] = useState('')
-    // const [admin, setAdmin] = useState(false)
+    const [admin, setAdmin] = useState(false)
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -19,9 +19,9 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // const user = result.user; 
-                // saveUserData(user.email, user.displayName, "PUT");
-
+                const user = result.user; 
+                // get user data when login
+                saveUserData(user.email, user.displayName, "PUT");
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
@@ -37,18 +37,15 @@ const useFirebase = () => {
                 setAuthError('');
                 const newUser = { email, displayName: name }
                 setUser(newUser);
-                // send user data to database 
-                // saveUserData(email, name, "POST");
-
+                // save user data when register 
+                saveUserData(email, name, "POST");
                 // send name to firebase auth management
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
                     // Profile updated!
-                    // ...
                 }).catch((error) => {
                     // An error occurred
-                    // ...
                 });
                 history.replace('/');
             })
@@ -99,27 +96,27 @@ const useFirebase = () => {
         })
             .finally(() => setIsLoading(false));
     }
-    // const saveUserData = (email, displayName, method) => {
-    //     const user = { email, displayName }
-    //     fetch('https://polar-thicket-34206.herokuapp.com/users-data', {
-    //         method: method,
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     }).then()
-    // }
+    const saveUserData = (email, displayName, method) => {
+        const user = { email, displayName }
+        fetch('https://frozen-beach-02774.herokuapp.com/users-data', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        }).then()
+    }
 
-    // useEffect(() => {
-    //     const url = `https://polar-thicket-34206.herokuapp.com/users-data/${user.email}`
-    //     fetch(url)
-    //         .then(res=> res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
+    useEffect(() => {
+        const url = `https://frozen-beach-02774.herokuapp.com/users-data/${user.email}`
+        fetch(url)
+            .then(res=> res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
     return {
         user,
-        // admin, 
+        admin, 
         isLoading,
         authError,
         registerUser,

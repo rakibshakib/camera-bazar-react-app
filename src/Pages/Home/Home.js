@@ -6,7 +6,12 @@ const Home = () => {
     return (
         <div>
             <Navbar />
+            <h2>Banner </h2>
             <HomeProduct />
+            <h2>Review</h2>
+            <footer>
+                this is footer
+            </footer>
         </div>
     )
 }

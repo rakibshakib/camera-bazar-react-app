@@ -1,27 +1,31 @@
-import React from 'react'
+import React from 'react';
 import { CircularProgress } from '@mui/material';
 import { Route, Redirect } from 'react-router-dom';
-import useAuth from '../Hooks/useAuth';
-const PrivateRoute = ({ children, ...rest }) => {
-    const { user, isLoading } = useAuth()
-    if (isLoading) { return <CircularProgress /> }
+import useAuth from '../Hooks/useAuth'
+
+const AdminRoute = ({ children, ...rest }) => {
+    const { user, admin, isLoading } = useAuth();
+    if (isLoading) {
+        return <CircularProgress />
+    }
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                user.email ? (
+                user.email && admin ? (
                     children
                 ) : (
                     <Redirect
                         to={{
-                            pathname: "/login",
+                            pathname: "/",
                             state: { from: location }
                         }}
                     />
                 )
             }
         />
-    )
-}
+    );
+};
 
-export default PrivateRoute
+
+export default AdminRoute

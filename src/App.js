@@ -7,6 +7,10 @@ import AuthProvider from './Components/Contexts/AuthProvider/AuthProvider';
 import Home from './Pages/Home/Home';
 import Explore from './Pages/Explore/Explore';
 import OrderCamera from './Pages/OrderCamera/OrderCamera';
+import LoginPage from './Pages/Login/LoginPage';
+import Register from './Pages/Login/Register/Register';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -23,8 +27,17 @@ function App() {
             <Route exact path='/explore'>
               <Explore />
             </Route>
-            <Route exact path='/camera-order/:id'>
+            <PrivateRoute exact path='/camera-order/:id'>
               <OrderCamera />
+            </PrivateRoute>
+            <Route exact path='/login'>
+              <LoginPage />
+            </Route>
+            <Route exact path='/register'>
+              <Register />
+            </Route>
+            <Route path='/dashboard'>
+              <Dashboard />
             </Route>
           </Switch>
         </BrowserRouter>

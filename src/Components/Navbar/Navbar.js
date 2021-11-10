@@ -5,7 +5,7 @@ import useAuth from '../Hooks/useAuth';
 import './Nav.css'
 
 const Navbar = () => {
-    const { user, logOutUser } = useAuth();
+    const { user, logout } = useAuth();
     // button toogle hooks 
     // const [toggle, setToogle] = useState(false);
     // toogle button handeler 
@@ -23,16 +23,17 @@ const Navbar = () => {
                 <div>
                     <NavLink className='nav-items py-3 px-3 transition delay-75 duration-300 ease-in-out  hover:text-yellow-400' to="/home"><span>Home</span></NavLink>
                     <NavLink className='nav-items py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-out  hover:text-yellow-400' to="/explore"><span>Explore Cameras</span></NavLink>
-                    <NavLink className='nav-items py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-out  hover:text-yellow-400' to="/my-booking"><span>My Booking</span></NavLink>
-                    <NavLink className='nav-items py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-out hover:text-yellow-400' to="/manage-booking"><span>Manange Booking</span></NavLink>
-                    <NavLink className='nav-items py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-out  hover:text-yellow-400' to="/add-package"><span>Add New Package</span></NavLink>
+                   {
+                        user?.email &&  <NavLink className='nav-items py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-out  hover:text-yellow-400' to="/dashboard"><span>Dashboard</span></NavLink>
+                   }
+                    <NavLink className='nav-items py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-out hover:text-yellow-400' to="/about-us"><span>About Us</span></NavLink>
                     {
                         user?.email && <p className='inline-block mr-5 ml-2 font-medium border-b-2 px-2 '>{user.displayName}</p>
                     }
                     {
-                        user.email ? <button onClick={logOutUser} className='nav-items rounded-md py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-ou  hover:text-white'><BiLogOutCircle className='inline-block' /> Sign Out</button>
+                        user.email ? <button onClick={logout} className='nav-items rounded-md py-3 px-3 ml-5 transition delay-75 duration-300 ease-in-ou  hover:text-white'><BiLogOutCircle className='inline-block' /> Log Out</button>
                             :
-                            <NavLink className='nav-items py-3 px-2 ml-5 transition delay-75 duration-300 ease-in-out  hover:text-white' to="/signin"><AiOutlineLogin className='inline-block' /> Sign In</NavLink>
+                            <NavLink className='nav-items py-3 px-2 ml-5 transition delay-75 duration-300 ease-in-out  hover:text-white' to="/login"><AiOutlineLogin className='inline-block' /> Login</NavLink>
                     }
                 </div>
             </div>
