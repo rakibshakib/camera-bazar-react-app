@@ -5,6 +5,7 @@ import useCameraData from '../../Components/Hooks/useCameraData'
 import ProductCard from '../../Components/ProductCard/ProductCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import CircularProgress from '@mui/material/CircularProgress';
+import Footer from '../../Components/Footer/Footer';
 
 const Explore = () => {
     const [cameras] = useCameraData()
@@ -26,6 +27,7 @@ const Explore = () => {
                     </Grid>
                 </Box>
             </div>
+            <Footer />
         </>
     )
 }

@@ -4,6 +4,16 @@ import { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../Components/Hooks/useAuth';
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
+import { yellow } from '@mui/material/colors';
+
+const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(yellow[500]),
+    backgroundColor: yellow[700],
+    '&:hover': {
+        backgroundColor: yellow[700],
+    },
+}));
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
@@ -26,7 +36,7 @@ const Login = () => {
         <div>
             <Container>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: 5 }}>
-                    <Box sx={{ width: '50%' }}>
+                    <Box sx={{ width: '45%' }}>
                         <Typography variant="h6" component="div" sx={{ textAlign: 'center', color: "white" }}>
                             Login
                         </Typography>
@@ -47,7 +57,7 @@ const Login = () => {
                                 onBlur={handleOnChange}
                                 variant="standard" />
 
-                            <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</Button>
+                            <ColorButton sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</ColorButton>
                             <br />
                             <NavLink
                                 style={{ textDecoration: 'none' }}
@@ -59,7 +69,7 @@ const Login = () => {
                             {authError && <Alert severity="error">{authError}</Alert>}
                         </form>
 
-                        <Button sx={{ width: '75%', m: 1 }} onClick={() => loginWithGoogle(location, history)} variant="contained">Login With Google</Button>
+                        <ColorButton sx={{ width: '75%', m: 1 }} onClick={() => loginWithGoogle(location, history)} variant="contained">Login With Google</ColorButton>
 
                     </Box>
                 </Box>

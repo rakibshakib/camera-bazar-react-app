@@ -27,8 +27,8 @@ const ProductCard = ({ camera }) => {
         history.push(`/camera-order/${id}`);
     }
     return (
-        <Grid item xs={12} md={4} lg={3} sx={{ my: 2 }}>
-            <Card sx={{ maxWidth: 280, minWidth: 250, my: 2, p: 2, height: '100%' }}>
+        <Grid item xs={12} md={4} lg={3}>
+            <Card >
                 <CardMedia
                     component="img"
                     height="140"
@@ -36,10 +36,10 @@ const ProductCard = ({ camera }) => {
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h6" component="div" sx={{ fontSize: 17, mb: 2 }}>
+                    <Typography gutterBottom variant="p" component="div" sx={{ fontSize: 16, mb: 2 }}>
                         {camera.cameraName}
                     </Typography>
-                    <Typography gutterBottom variant="p" component="div" sx={{ py: 1, fontWeight: 600, fontSize: 14 }}>
+                    <Typography gutterBottom variant="p" component="div" sx={{ py: 1, fontSize: 14 }}>
                         Price: {camera.price} BDT
                     </Typography>
                     <Typography gutterBottom variant="p" component="div">

@@ -30,13 +30,20 @@ import Payment from '../../Components/Payment/Payment';
 import ManageAllOrders from '../../Components/ManageAllOrders/ManageAllOrders';
 import AddCamera from '../../Components/AddCamera/AddCamera';
 import ManageProduct from '../../Components/ManageProduct/ManageProduct';
+import { FaUserAstronaut, HiOutlineMail } from "react-icons/all";
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LogoutIcon from '@mui/icons-material/Logout';
+import HomeIcon from '@mui/icons-material/Home';
 
 
 const drawerWidth = 250;
 
 function Dashboard(props) {
 
-    const { admin, logout } = useAuth()
+    const { admin, logout, user } = useAuth()
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
@@ -49,8 +56,9 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <List >
-                <Link to={`${url}/my-order`}>
+
+            {
+                !admin && <List > <Link to={`${url}/my-order`}>
                     <ListItem sx={{ fontWeight: 600 }} button>
                         <ListItemIcon>
                             <AddShoppingCartIcon />
@@ -59,62 +67,64 @@ function Dashboard(props) {
                     </ListItem>
                 </Link>
 
-                <Link to={`${url}/add-review`}>
-                    <ListItem sx={{ fontWeight: 600 }} button>
-                        <ListItemIcon>
-                            <RateReviewIcon />
-                        </ListItemIcon>
-                        Review
-                    </ListItem>
-                </Link>
-                <Link to={`${url}/payment`}>
-                    <ListItem sx={{ fontWeight: 600 }} button>
-                        <ListItemIcon>
-                            <MonetizationOnIcon />
-                        </ListItemIcon>
-                        Pay
-                    </ListItem>
-                </Link>
-                <Divider />
-                {
-                    admin && <List>
-                        <Link to={`${url}/manageAllOrder`}>
-                            <ListItem sx={{ fontWeight: 600 }} button>
-                                <ListItemIcon>
-                                    <MonetizationOnIcon />
-                                </ListItemIcon>
-                                Manage All Orders
-                            </ListItem>
-                        </Link>
-                        <Link to={`${url}/add-camera`}>
-                            <ListItem sx={{ fontWeight: 600 }} button>
-                                <ListItemIcon>
-                                    <MonetizationOnIcon />
-                                </ListItemIcon>
-                                Add Camera
-                            </ListItem>
-                        </Link>
-                        <Link to={`${url}/makeAdmin`}>
-                            <ListItem sx={{ fontWeight: 600 }} button>
-                                <ListItemIcon>
-                                    <MonetizationOnIcon />
-                                </ListItemIcon>
-                                Add Admin
-                            </ListItem>
-                        </Link>
+                    <Link to={`${url}/add-review`}>
+                        <ListItem sx={{ fontWeight: 600 }} button>
+                            <ListItemIcon>
+                                <RateReviewIcon />
+                            </ListItemIcon>
+                            Review
+                        </ListItem>
+                    </Link>
+                    <Link to={`${url}/payment`}>
+                        <ListItem sx={{ fontWeight: 600 }} button>
+                            <ListItemIcon>
+                                <MonetizationOnIcon />
+                            </ListItemIcon>
+                            Pay
+                        </ListItem>
+                    </Link>
+                </List>
+            }
+            <Divider />
+            {
+                admin && <List>
+                    <Link to={`${url}/manageAllOrder`}>
+                        <ListItem sx={{ fontWeight: 600 }} button>
+                            <ListItemIcon>
+                                <ManageAccountsIcon />
+                            </ListItemIcon>
+                            Manage All Orders
+                        </ListItem>
+                    </Link>
+                    <Link to={`${url}/add-camera`}>
+                        <ListItem sx={{ fontWeight: 600 }} button>
+                            <ListItemIcon>
+                                <AddAPhotoIcon />
+                            </ListItemIcon>
+                            Add Camera
+                        </ListItem>
+                    </Link>
+                    <Link to={`${url}/makeAdmin`}>
+                        <ListItem sx={{ fontWeight: 600 }} button>
+                            <ListItemIcon>
+                                <AdminPanelSettingsIcon />
+                            </ListItemIcon>
+                            Add Admin
+                        </ListItem>
+                    </Link>
 
-                        <Link to={`${url}/manage-product`}>
-                            <ListItem sx={{ fontWeight: 600 }} button>
-                                <ListItemIcon>
-                                    <MonetizationOnIcon />
-                                </ListItemIcon>
-                                Manage Products
-                            </ListItem>
-                        </Link>
-                    </List>
-                }
+                    <Link to={`${url}/manage-product`}>
+                        <ListItem sx={{ fontWeight: 600 }} button>
+                            <ListItemIcon>
+                                <ShoppingCartIcon />
+                            </ListItemIcon>
+                            Manage Products
+                        </ListItem>
+                    </Link>
+                </List>
+            }
 
-            </List>
+
             <Divider />
         </div>
     );
@@ -130,7 +140,7 @@ function Dashboard(props) {
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                     bgcolor: 'black',
-                    py: 1
+                    py: 0.5
                 }}
             >
                 <Toolbar>
@@ -143,11 +153,11 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="p" noWrap component="button" sx={{ ml: 2, fontWeight: 600, border: 1, py: 2, px: 1, borderRadius: 2 }}>
-                        <Link to='/'> Home Page </Link>
+                    <Typography variant="p" noWrap component="button" sx={{ ml: 2, fontWeight: 500 }}>
+                        <Link to='/'> <HomeIcon />  Home Page </Link>
                     </Typography>
-                    <Typography variant="p" noWrap component="button" sx={{ ml: 3, fontWeight: 600, color: 'yellow' }} onClick={logout}>
-                        Logout
+                    <Typography variant="p" noWrap component="button" sx={{ ml: 3, fontWeight: 500, color: 'yellow' }} onClick={logout}>
+                    <LogoutIcon /> Logout
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -191,7 +201,13 @@ function Dashboard(props) {
                 <Box >
                     <Switch>
                         <Route exact path={path}>
-                            <h2>This is DashBoard</h2>
+                            <Box>
+                                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-5 py-5 justify-items-center md:border-2 rounded-3xl text-base md:text-xl font-semibold'>
+                                    <h2 className='flex items-center'> <FaUserAstronaut className='inline-block mr-2' /> UserName: <span className=' md:ml-3'> {user?.displayName || "Admin Name"}</span></h2>
+                                    <h2 className='flex items-center'> <HiOutlineMail className='inline-block mr-2' /> UserEmail: <span className=' md:ml-3'> {user?.email || "Admin Email"}</span></h2>
+                                </div>
+                            </Box>
+
                         </Route>
                         <AdminRoute path={`${path}/makeAdmin`}>
                             <AddAdmin />

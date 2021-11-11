@@ -7,7 +7,7 @@ const ManageProductCard = ({camera, handleDeleteOrder}) => {
                     <div>
                         <h2 className="font-medium text-md py-2">{camera.cameraName}</h2>
                     </div>
-                    <button onClick={()=> handleDeleteOrder(camera._id)} className='border p-3 font-medium bg-yellow-400 rounded-2xl'>Delete Product</button>
+                    <button onClick={()=> handleDeleteOrder(camera._id)} className='border py-2 text-sm px-2 font-medium bg-yellow-400 rounded-2xl'>Delete Product</button>
                 </div>
             </div>
     )

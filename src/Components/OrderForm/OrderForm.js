@@ -121,7 +121,7 @@ const OrderForm = () => {
                                 Current Price: {camera.price} BDT
                             </Typography>
                             <Typography gutterBottom variant="span" component="span" sx={{ my: 2, fontWeight: 500, fontSize: 15 }}>
-                                Old Price: {camera.price + 5000} BDT
+                                Old Price: { parseInt(camera.price) + 5000} BDT
                             </Typography>
                             <Typography gutterBottom variant="p" component="div" sx={{ my: 2 }}>
                                 Model: {camera.model}

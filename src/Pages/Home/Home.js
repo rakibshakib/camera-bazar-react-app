@@ -1,5 +1,8 @@
 import React from 'react'
+import CameraCard from '../../Components/CameraCard/CameraCard'
+import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
+import Review from '../../Components/Review/Review'
 import HomeProduct from './HomeProduct/HomeProduct'
 
 const Home = () => {
@@ -8,10 +11,10 @@ const Home = () => {
             <Navbar />
             <h2>Banner </h2>
             <HomeProduct />
-            <h2>Review</h2>
-            <footer>
-                this is footer
-            </footer>
+            <hr />
+            <CameraCard /> 
+            <Review />
+            <Footer /> 
         </div>
     )
 }
