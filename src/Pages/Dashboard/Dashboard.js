@@ -29,13 +29,14 @@ import AddReview from '../../Components/AddReview/AddReview'
 import Payment from '../../Components/Payment/Payment';
 import ManageAllOrders from '../../Components/ManageAllOrders/ManageAllOrders';
 import AddCamera from '../../Components/AddCamera/AddCamera';
+import ManageProduct from '../../Components/ManageProduct/ManageProduct';
 
 
 const drawerWidth = 250;
 
 function Dashboard(props) {
 
-    const { admin } = useAuth()
+    const { admin, logout } = useAuth()
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
@@ -102,14 +103,14 @@ function Dashboard(props) {
                             </ListItem>
                         </Link>
 
-
-                        <ListItem sx={{ fontWeight: 600 }} button>
-                            <ListItemIcon>
-                                <MonetizationOnIcon />
-                            </ListItemIcon>
-                            Manage Products
-                        </ListItem>
-
+                        <Link to={`${url}/manage-product`}>
+                            <ListItem sx={{ fontWeight: 600 }} button>
+                                <ListItemIcon>
+                                    <MonetizationOnIcon />
+                                </ListItemIcon>
+                                Manage Products
+                            </ListItem>
+                        </Link>
                     </List>
                 }
 
@@ -142,10 +143,10 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="p" noWrap component="button" sx={{ ml: 2, fontWeight: 600 }}>
+                    <Typography variant="p" noWrap component="button" sx={{ ml: 2, fontWeight: 600, border: 1, py: 2, px: 1, borderRadius: 2 }}>
                         <Link to='/'> Home Page </Link>
                     </Typography>
-                    <Typography variant="p" noWrap component="button" sx={{ ml: 3, fontWeight: 600, color: 'yellow' }}>
+                    <Typography variant="p" noWrap component="button" sx={{ ml: 3, fontWeight: 600, color: 'yellow' }} onClick={logout}>
                         Logout
                     </Typography>
                 </Toolbar>
@@ -200,6 +201,9 @@ function Dashboard(props) {
                         </AdminRoute>
                         <AdminRoute path={`${path}/add-camera`}>
                             <AddCamera />
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/manage-product`}>
+                            <ManageProduct />
                         </AdminRoute>
                         <Route path={`${path}/add-review`}>
                             <AddReview />
