@@ -9,6 +9,7 @@ import CameraCard from '../../Components/CameraCard/CameraCard';
 import NewsLetter from '../../Components/NewsLetter/NewsLetter';
 import PromotionalBanner from '../../Components/PromotionalBanner/PromotionalBanner';
 
+
 const Explore = () => {
     const [cameras] = useCameraData()
     return (
@@ -31,6 +32,7 @@ const Explore = () => {
             </div>
             <NewsLetter />
             <PromotionalBanner />
+       
             <Footer />
         </>
     )
