@@ -1,0 +1,9 @@
+.MuiCardHeader-title{
+    font-size: 16px !important;
+    font-weight: 600;
+}
+.MuiCardHeader-subheader{
+    font-size: 15px !important;
+    margin-top: 10px;
+}
+

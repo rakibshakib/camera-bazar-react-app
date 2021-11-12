@@ -2,10 +2,10 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import useCameraData from '../../Components/Hooks/useCameraData'
-import ProductCard from '../../Components/ProductCard/ProductCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import CircularProgress from '@mui/material/CircularProgress';
 import Footer from '../../Components/Footer/Footer';
+import CameraCard from '../../Components/CameraCard/CameraCard';
 
 const Explore = () => {
     const [cameras] = useCameraData()
@@ -19,7 +19,7 @@ const Explore = () => {
                     <Grid container spacing={2}>
                         {cameras.length === 0 ? <p className='text-center font-bold'> <CircularProgress /> Loading..  </p>
                             :
-                            cameras.map(camera => <ProductCard
+                            cameras.map(camera => <CameraCard
                                 key={camera._id}
                                 camera={camera}
                             />)

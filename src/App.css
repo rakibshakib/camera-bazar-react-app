@@ -4,3 +4,16 @@
   padding: 0;
   font-family: "Montserrat", sans-serif !important;
 }
+.MuiCardMedia-img{
+  width: 250px !important;
+  margin: 0 auto;
+}
+.MuiCardHeader-title{
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+.MuiCardHeader-subheader{
+  font-size: 15px !important;
+  margin-top: 10px !important;
+}
+
