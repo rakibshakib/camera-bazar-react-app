@@ -1,6 +1,9 @@
 import React from 'react'
+import BannerPage from '../../Components/BannerPage/BannerPage'
 import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
+import NewsLetter from '../../Components/NewsLetter/NewsLetter'
+import PromotionalBanner from '../../Components/PromotionalBanner/PromotionalBanner'
 import Review from '../../Components/Review/Review'
 import HomeProduct from './HomeProduct/HomeProduct'
 
@@ -8,10 +11,11 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <h2>Banner </h2>
+            <BannerPage />
             <HomeProduct />
             <hr />
-            
+            <PromotionalBanner />
+            <NewsLetter />
             <Review />
             <Footer /> 
         </div>

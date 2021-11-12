@@ -6,6 +6,8 @@ import Navbar from '../../Components/Navbar/Navbar';
 import CircularProgress from '@mui/material/CircularProgress';
 import Footer from '../../Components/Footer/Footer';
 import CameraCard from '../../Components/CameraCard/CameraCard';
+import NewsLetter from '../../Components/NewsLetter/NewsLetter';
+import PromotionalBanner from '../../Components/PromotionalBanner/PromotionalBanner';
 
 const Explore = () => {
     const [cameras] = useCameraData()
@@ -27,6 +29,8 @@ const Explore = () => {
                     </Grid>
                 </Box>
             </div>
+            <NewsLetter />
+            <PromotionalBanner />
             <Footer />
         </>
     )

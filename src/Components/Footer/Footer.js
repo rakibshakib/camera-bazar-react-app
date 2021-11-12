@@ -1,6 +1,7 @@
 import React from 'react'
 import cameraFooter from '../../images/camera-footer.jpg';
-import './Footer.css'
+import './Footer.css';
+import { AiOutlineCamera } from "react-icons/all";
 
 const Footer = () => {
     return (
@@ -13,8 +14,8 @@ const Footer = () => {
             <div className='container mx-auto py-6'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center text-gray-300 py-5'>
                     <div className='leading-relaxed footer-text text-center md:text-left px-4'>
-                        <h2>Camera Bazar</h2>
-                        <p className='mt-5 text-base'>To me, photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with the things you see and everything to do with the way you see them.</p>
+                        <h2 className='text-2xl font-semibold '> <AiOutlineCamera className='inline-block mr-2 text-3xl' />Camera Bazar</h2>
+                        <p className='mt-5 text-sm'>To me, photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with the things you see and everything to do with the way you see them.</p>
 
 
                     </div>

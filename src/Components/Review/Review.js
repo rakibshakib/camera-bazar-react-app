@@ -18,7 +18,7 @@ const Review = () => {
     }, [])
     return (
         <div className='container mx-auto my-6'>
-            <h2 className='text-xl text-center font-semibold my-6'>Customer Review</h2>
+            <h2 className='text-2xl text-center font-semibold my-6'>Customer Review</h2>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}

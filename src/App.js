@@ -11,6 +11,8 @@ import LoginPage from './Pages/Login/LoginPage';
 import Register from './Pages/Login/Register/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import AboutUs from './Pages/AboutUs/AboutUs';
+import NotFound from './Pages/NotFound/NotFound'
 
 function App() {
   return (
@@ -38,6 +40,12 @@ function App() {
             </Route>
             <Route path='/dashboard'>
               <Dashboard />
+            </Route>
+            <Route path='/about-us'>
+              <AboutUs />
+            </Route>
+            <Route path='*'>
+              <NotFound />
             </Route>
           </Switch>
         </BrowserRouter>

@@ -34,16 +34,16 @@ const CameraCard = ({ camera }) => {
           <Typography
             variant="p"
             color="text.secondary"
-            sx={{ fontSize: 15, fontWeight: 600 }}
+            sx={{ fontSize: 15, fontWeight: 700 }}
           >
             Price: {camera?.price}
           </Typography>
           <Typography
             variant="h6"
             color="text.secondary"
-            sx={{ fontSize: 15, mt: 2 }}
+            sx={{ fontSize: 14, mt: 2 }}
           >
-            Price: {camera?.description.slice(0, 100)}
+          {camera?.description.slice(0, 100)}
           </Typography>
         </CardContent>
         <CardActions>
