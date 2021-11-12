@@ -22,7 +22,7 @@ const CameraCard = ({ camera }) => {
   };
   return (
     <Grid item xs={12} md={4} lg={3}>
-      <Card sx={{ maxWidth: 345 , height: '100%' }}>
+      <Card sx={{ maxWidth: 345, height: "100%" }}>
         <CardHeader title={camera?.cameraName} subheader={camera?.model} />
         <CardMedia
           component="img"
@@ -43,7 +43,7 @@ const CameraCard = ({ camera }) => {
             color="text.secondary"
             sx={{ fontSize: 14, mt: 2 }}
           >
-          {camera?.description.slice(0, 100)}
+            {camera?.description.slice(0, 100)}
           </Typography>
         </CardContent>
         <CardActions>
@@ -54,10 +54,12 @@ const CameraCard = ({ camera }) => {
           </Tooltip>
           <Tooltip title="Order Camera">
             <IconButton
+              className='buy-now-btn'
               aria-label="order"
               onClick={() => handleSingleProduct(camera?._id)}
             >
               <AddShoppingCartIcon />
+              <p className="text-base font-semibold ml-2">Buy Now</p>
             </IconButton>
           </Tooltip>
         </CardActions>

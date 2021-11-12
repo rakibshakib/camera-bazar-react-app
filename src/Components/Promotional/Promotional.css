@@ -1,9 +1,8 @@
-.ad-img{
+.prom-img{
     width: 100%;
-    margin: 0 auto;
 }
-.ad-img img{
-    width: 80%;
+.prom-img img{
+    width: 90%;
     margin: 0 auto;
     border-radius: 10px;
 }

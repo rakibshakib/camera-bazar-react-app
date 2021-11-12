@@ -6,4 +6,8 @@
     font-size: 14px !important;
     margin-top: 10px;
 }
+.buy-now-btn:hover{
+    border-radius: 10px !important;
+
+}
 

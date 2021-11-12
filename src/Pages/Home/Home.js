@@ -3,9 +3,11 @@ import BannerPage from '../../Components/BannerPage/BannerPage'
 import Footer from '../../Components/Footer/Footer'
 import Navbar from '../../Components/Navbar/Navbar'
 import NewsLetter from '../../Components/NewsLetter/NewsLetter'
-import PromotionalBanner from '../../Components/PromotionalBanner/PromotionalBanner'
+import Promotional from '../../Components/Promotional/Promotional'
 import Review from '../../Components/Review/Review'
 import HomeProduct from './HomeProduct/HomeProduct'
+
+
 
 const Home = () => {
     return (
@@ -14,10 +16,11 @@ const Home = () => {
             <BannerPage />
             <HomeProduct />
             <hr />
+            <Promotional />
             <NewsLetter />
-            <PromotionalBanner />
             <Review />
             <Footer /> 
+           
         </div>
     )
 }

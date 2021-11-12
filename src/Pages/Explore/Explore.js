@@ -7,7 +7,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Footer from '../../Components/Footer/Footer';
 import CameraCard from '../../Components/CameraCard/CameraCard';
 import NewsLetter from '../../Components/NewsLetter/NewsLetter';
-import PromotionalBanner from '../../Components/PromotionalBanner/PromotionalBanner';
+import Promotional from '../../Components/Promotional/Promotional';
 
 
 const Explore = () => {
@@ -31,8 +31,7 @@ const Explore = () => {
                 </Box>
             </div>
             <NewsLetter />
-            <PromotionalBanner />
-       
+            <Promotional />
             <Footer />
         </>
     )

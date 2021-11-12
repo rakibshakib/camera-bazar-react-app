@@ -37,16 +37,22 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
+import { useHistory } from 'react-router-dom';
 
 
 const drawerWidth = 250;
 
 function Dashboard(props) {
-
     const { admin, logout, user } = useAuth()
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
+    const history = useHistory();
+
+    const logoutHandler = () => {
+        logout();
+        history.push(`/home`);
+    }
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -156,7 +162,7 @@ function Dashboard(props) {
                     <Typography variant="p" noWrap component="button" sx={{ ml: 2, fontWeight: 500 }}>
                         <Link to='/'> <HomeIcon />  Home Page </Link>
                     </Typography>
-                    <Typography variant="p" noWrap component="button" sx={{ ml: 3, fontWeight: 500, color: 'yellow' }} onClick={logout}>
+                    <Typography variant="p" noWrap component="button" sx={{ ml: 3, fontWeight: 500, color: 'yellow' }} onClick={logoutHandler}>
                     <LogoutIcon /> Logout
                     </Typography>
                 </Toolbar>
