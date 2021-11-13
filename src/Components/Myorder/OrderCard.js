@@ -1,8 +1,17 @@
-import React from 'react'
+import { Button } from '@mui/material'
+import { styled } from '@mui/material/styles';
+import { yellow } from '@mui/material/colors';
 
-const OrderCard = ({ order, handleDeleteOrder }) => {
+const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(yellow[500]),
+    backgroundColor: yellow[700],
+    '&:hover': {
+        backgroundColor: yellow[700],
+    },
+}));
 
-    
+
+const OrderCard = ({ order, handleDeleteOrder }) => {  
     return (
         <div>
             <div className='border rounded-2xl p-5 my-3'>
@@ -11,7 +20,8 @@ const OrderCard = ({ order, handleDeleteOrder }) => {
                         <h2 className="font-medium text-md py-2">{order.orderItem}</h2>
                         <h2>Price: {order?.price}</h2>
                     </div>
-                    <button onClick={()=> handleDeleteOrder(order._id)} className='border p-3 font-medium bg-yellow-400 rounded-2xl'>Delete Order</button>
+                    <h2 className='font-medium'>Status: {order?.status}</h2>
+                    <ColorButton  onClick={()=> handleDeleteOrder(order._id)}>Delete Order</ColorButton>
                 </div>
             </div>
         </div>

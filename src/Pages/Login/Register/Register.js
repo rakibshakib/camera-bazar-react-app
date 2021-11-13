@@ -44,7 +44,7 @@ rgba(0, 0, 0, 0.6)), url(${cameraBg})`
         }}>
             <Container>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: 5 }}>
-                    <Box sx={{ width: '40%' }}>
+                    <Box sx={{ width: '100%' }}>
                         <Typography sx={{ color: "white", pt: 5, fontSize: 25 }} variant="body1" gutterBottom>Register</Typography>
                         {!isLoading && <form onSubmit={handleLoginSubmit} className='bg-white py-5 px-2 rounded-2xl my-5'>
                             <TextField
@@ -81,6 +81,7 @@ rgba(0, 0, 0, 0.6)), url(${cameraBg})`
                                 variant="standard" />
 
                             <ColorButton sx={{ width: '50%', m: 1 }} type="submit" variant="contained">Register</ColorButton>
+                         <br />
                             <NavLink
                                 style={{ textDecoration: 'none' }}
                                 to="/login">

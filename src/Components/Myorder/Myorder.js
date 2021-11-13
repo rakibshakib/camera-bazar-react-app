@@ -5,7 +5,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const Myorder = () => {
     const [myOrder, setMyOrder] = useState([])
-    const { user } = useAuth()
+    const { user } = useAuth();
+  
 
     useEffect(() => {
         fetch('https://frozen-beach-02774.herokuapp.com/my-booking', {

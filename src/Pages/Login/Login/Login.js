@@ -36,7 +36,7 @@ const Login = () => {
         <div>
             <Container>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: 5 }}>
-                    <Box sx={{ width: '45%' }}>
+                    <Box sx={{ width: '100%', md:{width: '50%'} }}>
                         <Typography variant="h6" component="div" sx={{ textAlign: 'center', color: "white" }}>
                             Login
                         </Typography>

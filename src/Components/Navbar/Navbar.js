@@ -5,7 +5,7 @@ import {
   AiOutlineCamera,
   FaBars,
 } from "react-icons/all";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import "./Nav.css";
 
@@ -23,10 +23,12 @@ const Navbar = () => {
       <div className=" container  mx-auto">
         <div className="text-white py-2 font-medium flex items-center justify-between desktop-nav">
           <div>
+            <Link to='/'>
             <h2 className="text-2xl">
               <AiOutlineCamera className="inline-block mr-2 text-3xl" /> Camera
               Bazar
             </h2>
+            </Link>
           </div>
           <div>
             <NavLink

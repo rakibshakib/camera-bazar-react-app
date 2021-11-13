@@ -1,4 +1,15 @@
 import React from 'react'
+import { styled } from '@mui/material/styles';
+import { Button } from '@mui/material'
+import { red } from '@mui/material/colors';
+
+const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(red[500]),
+    backgroundColor: red[700],
+    '&:hover': {
+        backgroundColor: red[700],
+    },
+}));
 
 const ManageProductCard = ({camera, handleDeleteOrder}) => {
     return (
@@ -7,7 +18,7 @@ const ManageProductCard = ({camera, handleDeleteOrder}) => {
                     <div>
                         <h2 className="font-medium text-md py-2">{camera.cameraName}</h2>
                     </div>
-                    <button onClick={()=> handleDeleteOrder(camera._id)} className='border py-2 text-sm px-2 font-medium bg-yellow-400 rounded-2xl'>Delete Product</button>
+                    <ColorButton onClick={()=> handleDeleteOrder(camera._id)}>Delete Product</ColorButton>
                 </div>
             </div>
     )
