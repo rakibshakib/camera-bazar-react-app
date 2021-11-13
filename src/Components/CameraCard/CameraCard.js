@@ -13,11 +13,8 @@ import { Grid, Tooltip } from "@mui/material";
 import { useHistory } from "react-router";
 
 const CameraCard = ({ camera }) => {
-  // const {cameraName, description, image, model,price} = props.camera
-  console.log(camera?.cameraName);
   const history = useHistory();
   const handleSingleProduct = (id) => {
-    console.log(id);
     history.push(`/camera-order/${id}`);
   };
   return (
