@@ -1,11 +1,11 @@
 import { Alert, Button, TextField } from '@mui/material';
 import React, { useState } from 'react'
-// import useAuth from '../../../Components/Hooks/useAuth';
+import useAuth from '../../../Components/Hooks/useAuth';
 
 const AddAdmin = () => {
     const [email, setEmail] = useState('')
     const [success, setSuccess] = useState(false);
-    // const { token } = useAuth();
+    const { token } = useAuth();
 
     const handleOnBlur = e => {
         setEmail(e.target.value)
@@ -15,7 +15,7 @@ const AddAdmin = () => {
         fetch('https://frozen-beach-02774.herokuapp.com/users-data/admin', {
             method: 'PUT',
             headers: {
-                // 'authorization': `Bearer ${token}`,
+                'authorization': `Bearer ${token}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)

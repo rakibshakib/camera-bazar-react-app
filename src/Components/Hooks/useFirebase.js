@@ -106,7 +106,7 @@ const useFirebase = () => {
             body: JSON.stringify(user)
         }).then()
     }
-
+    // get admin conditional value 
     useEffect(() => {
         const url = `https://frozen-beach-02774.herokuapp.com/users-data/${user.email}`
         fetch(url)
