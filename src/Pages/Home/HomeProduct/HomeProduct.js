@@ -18,12 +18,12 @@ const HomeProduct = () => {
         </div>
       )}
       <Grid container spacing={3}>
-        {cameras?.slice(2, 10).map((camera) => (
+        {cameras?.slice(0, 8).map((camera) => (
           <CameraCard key={camera._id} camera={camera} />
         ))}
       </Grid>
     </Container>
   );
-};
+};  
 
 export default HomeProduct;
