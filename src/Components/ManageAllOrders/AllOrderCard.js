@@ -6,7 +6,7 @@ const AllOrderCard = ({ item, deleteOrder }) => {
     const [isApproved, setIsApproved] = useState(item?.status)
 
     const changeStatus = id => {
-        fetch("https://frozen-beach-02774.herokuapp.com/update-order", {
+        fetch("https://camera-bazar-node-server.onrender.com/update-order", {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

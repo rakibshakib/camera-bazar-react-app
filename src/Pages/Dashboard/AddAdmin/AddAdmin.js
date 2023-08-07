@@ -12,7 +12,7 @@ const AddAdmin = () => {
     }
     const handleAdminSubmit = e => {
         const user = { email }
-        fetch('https://frozen-beach-02774.herokuapp.com/users-data/admin', {
+        fetch('https://camera-bazar-node-server.onrender.com/users-data/admin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,

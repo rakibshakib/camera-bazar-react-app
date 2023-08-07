@@ -4,7 +4,7 @@
 ### This Project is Developed by React js, Node.js, Express.js, MongoDb
 
 live Link: 
-## https://camera-bazar-app.web.app/home
+## https://camera-bazar-app.web.app
 
 
 Here We Used Some Technology: 

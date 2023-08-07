@@ -6,7 +6,7 @@ const ManageProduct = () => {
     const [cameras, setCameras] = useState([])
 
     useEffect(() => {
-        fetch("https://frozen-beach-02774.herokuapp.com/cameras")
+        fetch("https://camera-bazar-node-server.onrender.com/cameras")
             .then(res => res.json())
             .then(data => setCameras(data))
     }, [])
@@ -15,7 +15,7 @@ const ManageProduct = () => {
         console.log(id)
         const proceed = window.confirm("Are You Sure Want to Delete This Product ?")
         if (proceed) {
-            const url = `https://frozen-beach-02774.herokuapp.com/all-cameras/${id}`
+            const url = `https://camera-bazar-node-server.onrender.com/all-cameras/${id}`
             fetch(url, {
                 method: "DELETE"
             }).then(res => res.json())

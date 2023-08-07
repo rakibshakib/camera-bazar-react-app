@@ -98,7 +98,7 @@ const useFirebase = () => {
     }
     const saveUserData = (email, displayName, method) => {
         const user = { email, displayName }
-        fetch('https://frozen-beach-02774.herokuapp.com/users-data', {
+        fetch('https://camera-bazar-node-server.onrender.com/users-data', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -108,7 +108,7 @@ const useFirebase = () => {
     }
     // get admin conditional value 
     useEffect(() => {
-        const url = `https://frozen-beach-02774.herokuapp.com/users-data/${user.email}`
+        const url = `https://camera-bazar-node-server.onrender.com/users-data/${user.email}`
         fetch(url)
             .then(res=> res.json())
             .then(data => setAdmin(data.admin))

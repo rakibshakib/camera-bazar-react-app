@@ -8,7 +8,7 @@ const AddCamera = () => {
 
     const onSubmit = data => {
      
-        fetch('https://frozen-beach-02774.herokuapp.com/camera-add', {
+        fetch('https://camera-bazar-node-server.onrender.com/camera-add', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

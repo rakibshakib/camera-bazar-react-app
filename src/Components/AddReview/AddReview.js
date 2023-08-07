@@ -24,7 +24,7 @@ const AddReview = () => {
             reviewRating: ratingValue
         }
         console.log("this is the review: ", review)
-        fetch("https://frozen-beach-02774.herokuapp.com/review", {
+        fetch("https://camera-bazar-node-server.onrender.com/review", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

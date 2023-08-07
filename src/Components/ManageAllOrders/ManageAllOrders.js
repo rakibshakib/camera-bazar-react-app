@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
   const { user } = useAuth();
   const [allOrders, setAllOrders] = useState([]);
   useEffect(() => {
-    fetch("https://frozen-beach-02774.herokuapp.com/all-orders")
+    fetch("https://camera-bazar-node-server.onrender.com/all-orders")
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
   }, []);
@@ -16,7 +16,7 @@ const ManageAllOrders = () => {
   const deleteOrder = (id) => {
     const proceed = window.confirm("Are You Sure Want to Delete Thir Order ?");
     if (proceed) {
-      const url = `https://frozen-beach-02774.herokuapp.com/all-orders/${id}`;
+      const url = `https://camera-bazar-node-server.onrender.com/all-orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })

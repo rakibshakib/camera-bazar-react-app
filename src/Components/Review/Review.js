@@ -12,7 +12,7 @@ SwiperCore.use([Pagination, Autoplay]);
 const Review = () => {
     const [productReview, setProductReview] = useState([])
     useEffect(() => {
-        fetch('https://frozen-beach-02774.herokuapp.com/review')
+        fetch('https://camera-bazar-node-server.onrender.com/review')
             .then(res => res.json())
             .then(data => setProductReview(data))
     }, [])
