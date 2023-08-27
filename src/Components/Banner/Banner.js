@@ -4,7 +4,7 @@ import "swiper/components/effect-fade/effect-fade.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/swiper.min.css";
-import banner1 from "../../images/banner1.png";
+import banner1 from "../../images/adbanner.png";
 import banner2 from "../../images/banner2.png";
 import banner3 from "../../images/banner3.png";
 import "./Banner.css";

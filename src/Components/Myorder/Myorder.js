@@ -9,7 +9,7 @@ const Myorder = () => {
   
 
     useEffect(() => {
-        fetch('https://frozen-beach-02774.herokuapp.com/my-booking', {
+        fetch('http://localhost:5000/my-booking', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -22,7 +22,7 @@ const Myorder = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm("Are You Sure Want to Delete Your Order ?")
         if (proceed) {
-            const url = `https://frozen-beach-02774.herokuapp.com/all-orders/${id}`
+            const url = `http://localhost:5000/all-orders/${id}`
             fetch(url, {
                 method: "DELETE"
             }).then(res => res.json())

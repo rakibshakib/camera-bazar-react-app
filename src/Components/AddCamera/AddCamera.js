@@ -8,7 +8,7 @@ const AddCamera = () => {
 
     const onSubmit = data => {
      
-        fetch('https://frozen-beach-02774.herokuapp.com/camera-add', {
+        fetch('http://localhost:5000/camera-add', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

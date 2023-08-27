@@ -14,7 +14,7 @@ const OrderForm = () => {
 
     // getting single camera data by id  
     useEffect(() => {
-        const url = `https://frozen-beach-02774.herokuapp.com/cameras/${id}`
+        const url = `http://localhost:5000/cameras/${id}`
         fetch(url).then(res => res.json())
             .then(data => setCamera(data))
     }, [id])
@@ -38,7 +38,7 @@ const OrderForm = () => {
             status: "pending",
             price: camera.price
         }
-        fetch("https://frozen-beach-02774.herokuapp.com/camera-order", {
+        fetch("http://localhost:5000/camera-order", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
